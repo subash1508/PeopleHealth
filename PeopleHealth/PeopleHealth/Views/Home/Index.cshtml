@@ -1,0 +1,36 @@
+﻿@using System.Collections
+@using PeopleHealth.Models
+@model PeopleHealth.Models.Person
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table class="table">
+    <tbody>
+        <tr>
+            <th>@Html.Label("Please select a race")</th>
+            <th>
+                @Html.EnumDropDownListFor(model => model.Race, new
+           {
+               @class = "form-control",
+               @Id = "raceDropDown"
+           })
+            </th>
+        </tr>
+    </tbody>
+</table>
+
+<div class="action">@Html.ActionLink("Submit", "", "", new { @class = "btn btn-success", @Id = "getRace", onclick = "return false;" })</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/jscript">
+    $("#getRace").click(function () {
+        window.location.href = "/getPeopleList/listPeople?race=" + $("#raceDropDown :selected").text();
+    });
+</script>
+
+
+
+

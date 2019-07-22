@@ -1,0 +1,29 @@
+﻿@model List<PeopleHealth.Models.Person>
+@{
+    ViewBag.Title = "People Health Details";
+}
+
+
+<div>
+    <h4>Person</h4>
+    <hr />
+
+    <table class="table" style="display: block; overflow-y: scroll; max-height: 400px;max-width: 300px">
+        <thead>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Height</th>
+        </thead>
+        <tbody >
+            @foreach (var person in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => person.Name)</td>
+                    <td>@Html.DisplayFor(model => person.Age)</td>
+                    <td>@Html.DisplayFor(model => person.Height)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+   
+</div>
